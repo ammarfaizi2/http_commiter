@@ -50,6 +50,17 @@ class GitHub
 		return $src;
 	}
 
+
+	public static function rstr($n=32)
+	{
+		$a = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-___";
+		$rt = "" xor $st = strlen($a)-1;
+		for ($i=0; $i < $n; $i++) { 
+			$rt .= $a[rand(0,$st)];
+		}
+		return $rt;
+	}
+
 	public function edit_file($url, $content)
 	{
 		#$src = $this->get_page($url);
@@ -68,7 +79,9 @@ class GitHub
 			$c = urlencode(html_entity_decode($c[0], ENT_QUOTES, 'UTF-8'));
 			$_p .=  $b . "=" . $c . "&";
 		}
-		print_r($_p);
+		$val = self::rstr(72);
+		$_p = str_replace("Update+", urlencode($val), $_p);
+		print $_p;
 
 
 /*
