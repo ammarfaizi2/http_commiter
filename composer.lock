@@ -1,0 +1,57 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "66f1fb81b76127965232208db90ea17c",
+    "content-hash": "d687884224e5a09a8540b25eb73af9db",
+    "packages": [
+        {
+            "name": "ammarfaizi2/ratools",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ammarfaizi2/RA_Tools.git",
+                "reference": "7c0bf4b5b38628c005c38a018e444770728b5331"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ammarfaizi2/RA_Tools/zipball/7c0bf4b5b38628c005c38a018e444770728b5331",
+                "reference": "7c0bf4b5b38628c005c38a018e444770728b5331",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-0": {
+                    "Curl": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "RedAngel PHP Concept"
+            ],
+            "authors": [
+                {
+                    "name": "Ammar Faizi",
+                    "email": "ammarfaizi2@gmail.com"
+                }
+            ],
+            "description": "RA Tools",
+            "time": "2017-05-06 13:06:50"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "ammarfaizi2/ratools": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

@@ -1,0 +1,17 @@
+{
+    "name": "root/cmtr",
+    "authors": [
+        {
+            "name": "Ammar Faizi",
+            "email": "ammarfaizi2@gmail.com"
+        }
+    ],
+    "require": {
+    	"ammarfaizi2/ratools": "dev-master"
+    },
+    "autoload": {
+    	"psr-4":{
+    		"Handler\\": "Handler/"
+    	}
+    }
+}
