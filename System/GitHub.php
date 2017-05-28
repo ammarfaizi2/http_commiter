@@ -10,16 +10,28 @@ class GitHub
 	{
 		$this->user = $user;
 		$this->pass = $pass;
-		$this->hash = md5($user.$pass);
+		$this->hash = sha1($user.$pass);
+	}
+
+	public function get_page($url, $post=null, $op=null)
+	{
+		$ch = new CMCurl($url);
+		$ch->set_useragent("Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:46.0) Gecko/20100101 Firefox/46.0");
+		$ch->set_cookie(data . "/" . $this->hash . ".txt");
+		if ($post) {
+			$ch->set_post($post);
+		}
+		if ($op) {
+			$ch->set_optional($op);
+		}
+		$src = $ch->execute();
+		return $src;
 	}
 
 	public function login()
 	{
-		$ch = new CMCurl("https://github.com/login");
-		$ch->set_useragent("Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:46.0) Gecko/20100101 Firefox/46.0");
-		$ch->set_cookie(data . "/" . $this->hash . ".txt");
-		$src = $ch->execute();
 		#$a = file_get_contents('a.tmp');
+		$src = $this->get_page("https://github.com/login");
 		$a = explode("<form", $src);
 		$a = explode("</form", $a[1]);
 		$a = explode("<input", $a[0]);
@@ -34,6 +46,7 @@ class GitHub
 			$_p .= $c . "=" . $b . "&";
 		}
 		$_p .= "login=".urlencode($this->user)."&password=".urlencode($this->pass);
-		print $_p;
+		$src = $this->get_page("https://github.com/session", $_p, array(CURLOPT_REFERER=>"https://github.com/login", 52=>1));
+		file_put_contents('a.tmp', $src);
 	}
 }
