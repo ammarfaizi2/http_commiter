@@ -23,8 +23,13 @@ class GitHub
 		$_p = "";
 		for ($i=1; $i < 3; $i++) { 
 			preg_match("#value=\"(.*)\"#", $a[$i], $n);
-			print_r($n);
+			$b = explode("\"", $n[1], 2);
+			$b = urlencode(html_entity_decode($b[0], ENT_QUOTES, 'UTF-8'));
+			preg_match("#name=\"(.*)\"#", $a[$i], $n);
+			$c = explode("\"", $n[1], 2);
+			$c = urlencode(html_entity_decode($c[0], ENT_QUOTES, 'UTF-8'));
+			$_p = $b . "=" . $c . "&";
 		}
-
+		print $_p;
 	}
 }
