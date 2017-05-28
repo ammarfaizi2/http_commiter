@@ -1,13 +1,12 @@
 <?php
 namespace Handler;
 
-
+use System\GitHub;
 
 class ActionHandler
 {	
 
-	private $user;
-	private $pass;
+	private $github;
 
 	/**
 	* @param	string	$user
@@ -15,7 +14,8 @@ class ActionHandler
 	*/
 	public function __construct($user, $pass)
 	{
-		$this->user = $user;
-		$this->pass = $pass;
+		$this->github = new GitHub($user, $pass);
 	}
+
+	public function login_action()
 }

@@ -5,6 +5,7 @@ use Curl\CMCurl;
 
 class GitHub
 {
+	
 	public function __construct($user, $pass)
 	{
 
