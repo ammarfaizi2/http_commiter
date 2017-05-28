@@ -8,7 +8,8 @@ class GitHub
 
 	public function __construct($user, $pass)
 	{
-
+		$this->user = $user;
+		$this->pass = $pass;
 	}
 
 	public function login()
@@ -20,7 +21,7 @@ class GitHub
 		$a = explode("<form", $a);
 		$a = explode("</form", $a[1]);
 		$a = explode("<input", $a[0]);
-		$_p = "";
+		$_p = "commit=Sign+in&";
 		for ($i=1; $i < 3; $i++) { 
 			preg_match("#value=\"(.*)\"#", $a[$i], $n);
 			$b = explode("\"", $n[1], 2);
@@ -28,8 +29,9 @@ class GitHub
 			preg_match("#name=\"(.*)\"#", $a[$i], $n);
 			$c = explode("\"", $n[1], 2);
 			$c = urlencode(html_entity_decode($c[0], ENT_QUOTES, 'UTF-8'));
-			$_p = $b . "=" . $c . "&";
+			$_p .= $c . "=" . $b . "&";
 		}
+		$_p .= "login=".urlencode($this->user)."&password=".urlencode($this->pass);
 		print $_p;
 	}
 }
