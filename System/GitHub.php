@@ -85,6 +85,6 @@ class GitHub
 		$val = self::rstr(72);
 		$_p = str_replace("content_changed=","content_changed=true",str_replace("Update+", urlencode($val), $_p));
 		$_p .= "message=&description=&commit-choice=direct&filename=index.py&value=".urlencode("print \"".$val."\"");
-		return $this->get_page($act, $_p, array(52=>false))
+		return $this->get_page($act, $_p, array(52=>false));
 	}
 }
