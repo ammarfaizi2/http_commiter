@@ -17,5 +17,14 @@ class ActionHandler
 		$this->github = new GitHub($user, $pass);
 	}
 
-	public function login_action()
+	private function login_action()
+	{
+		$this->github->login();
+	}
+
+
+	public function run()
+	{
+		$this->login_action();
+	}
 }
