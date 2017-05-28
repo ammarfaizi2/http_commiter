@@ -25,6 +25,7 @@ class ActionHandler
 
 	public function run()
 	{
-		$this->login_action();
+		#$this->login_action();
+		$this->login_action->edit_file("https://github.com/ammarfaizi2/rgp/edit/master/index.py","print \"".rand(0,99999)."\"");
 	}
 }

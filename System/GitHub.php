@@ -46,7 +46,12 @@ class GitHub
 			$_p .= $c . "=" . $b . "&";
 		}
 		$_p .= "login=".urlencode($this->user)."&password=".urlencode($this->pass);
-		$src = $this->get_page("https://github.com/session", $_p, array(CURLOPT_REFERER=>"https://github.com/login", 52=>1));
-		file_put_contents('a.tmp', $src);
+		$src = $this->get_page("https://github.com/session", $_p, array(CURLOPT_REFERER=>"https://github.com/login"));
+		return $src;
+	}
+
+	public function edit_file($url, $content)
+	{
+		
 	}
 }
