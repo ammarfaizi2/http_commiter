@@ -52,6 +52,7 @@ class GitHub
 
 	public function edit_file($url, $content)
 	{
-		
+		$src = $this->get_page($url);
+		file_put_contents('a.tmp', $src);
 	}
 }
